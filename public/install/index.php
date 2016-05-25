@@ -227,6 +227,13 @@ END;
 	fwrite($fp, trim($configcontent));
 	fclose($fp);
 	
+	//write laravel config
+	$laravelconfig = file_get_contents( S_ROOT.'../.env');	
+	foreach (array('dbhost'=>'DB_HOST', 'dbname'=>'DB_DATABASE', 'dbuser'=>'DB_USERNAME', 'dbpw'=>'DB_PASSWORD') as $key => $value) {
+		$laravelconfig = preg_replace("/".$value."\=.*/i", $value."=".$_POST['db'][$key], $laravelconfig);
+	}
+	file_put_contents( S_ROOT.'../.env',$laravelconfig );
+
 	if(empty($_POST['db']['tablepre'])) {
 		show_msg("填写的表名前缀不能为空");
 	}
