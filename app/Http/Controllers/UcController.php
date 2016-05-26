@@ -14,12 +14,15 @@ class UcController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+		
         // incloude old ucenter home
-		$path = public_path();
-		include_once($path.DIRECTORY_SEPARATOR.'index.old.php');
-		return 'no access';
+        $uri=$request->url();
+        $url=preg_replace('/\/index.php$/','',$uri);
+        header("Location: ".$url."/index2.php");
+        exit;
+
     }
 
     /**
