@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6dc1874c4dd4c50adaa87e45d6ba9920",
-    "content-hash": "45a52ceddb3f97b6c608c4a9a40828a2",
+    "hash": "663331f0dc4c7747e41e0122219e3d6f",
+    "content-hash": "96240cb944e2a592dbe7ee47fe7c39a8",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -364,16 +364,16 @@
         },
         {
             "name": "jpush/jpush",
-            "version": "v3.3.9",
+            "version": "v3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jpush/jpush-api-php-client.git",
-                "reference": "d38d87bd66595473586b38fbb43d097ada75e8e2"
+                "reference": "ec3de7e26f1e1ae89f7c5a2dd545a5da87a618c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/jpush/jpush-api-php-client/d38d87bd66595473586b38fbb43d097ada75e8e2.zip",
-                "reference": "d38d87bd66595473586b38fbb43d097ada75e8e2",
+                "url": "https://packagist.phpcomposer.com/files/jpush/jpush-api-php-client/ec3de7e26f1e1ae89f7c5a2dd545a5da87a618c8.zip",
+                "reference": "ec3de7e26f1e1ae89f7c5a2dd545a5da87a618c8",
                 "shasum": ""
             },
             "require": {
@@ -389,7 +389,12 @@
                     "jpush": "src/"
                 },
                 "files": [
-                    "src/JPush/JPush.php"
+                    "src/JPush/core/JPush.php",
+                    "src/JPush/core/DevicePayload.php",
+                    "src/JPush/core/JPushException.php",
+                    "src/JPush/core/PushPayload.php",
+                    "src/JPush/core/ReportPayload.php",
+                    "src/JPush/core/SchedulePayload.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -406,20 +411,20 @@
             ],
             "description": "JPush API PHP Client",
             "homepage": "http://docs.jpush.cn/display/dev/Push-API-v3",
-            "time": "2016-04-07 02:58:00"
+            "time": "2016-05-26 10:51:12"
         },
         {
             "name": "laravel/framework",
-            "version": "v5.1.35",
+            "version": "v5.1.36",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "50c7e026db1da8a265482fef4417c92f46cc5b78"
+                "reference": "5945837bc61227f21530c8c4455de0842dc18c9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/laravel/framework/50c7e026db1da8a265482fef4417c92f46cc5b78.zip",
-                "reference": "50c7e026db1da8a265482fef4417c92f46cc5b78",
+                "url": "https://packagist.phpcomposer.com/files/laravel/framework/5945837bc61227f21530c8c4455de0842dc18c9a.zip",
+                "reference": "5945837bc61227f21530c8c4455de0842dc18c9a",
                 "shasum": ""
             },
             "require": {
@@ -535,7 +540,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-04-27 13:07:50"
+            "time": "2016-05-26 14:23:48"
         },
         {
             "name": "league/flysystem",
@@ -741,6 +746,45 @@
                 "schedule"
             ],
             "time": "2016-01-26 21:23:30"
+        },
+        {
+            "name": "naturalwill/jphptools",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/NaturalWill/jphptools.git",
+                "reference": "f9b6e8c807f4f7a2144440e8f0685adf3c1570f2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/NaturalWill/jphptools/zipball/f9b6e8c807f4f7a2144440e8f0685adf3c1570f2",
+                "reference": "f9b6e8c807f4f7a2144440e8f0685adf3c1570f2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "jphptools": "src/"
+                },
+                "files": [
+                    "src/Json2xml.php",
+                    "src/Capi.php"
+                ]
+            },
+            "authors": [
+                {
+                    "name": "Jier Zhang",
+                    "email": "naturalwill999@gmail.com"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/NaturalWill/jphptools/tree/master",
+                "issues": "https://github.com/NaturalWill/jphptools/issues"
+            },
+            "time": "2016-05-28 10:22:53"
         },
         {
             "name": "nesbot/carbon",
@@ -3211,7 +3255,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "naturalwill/jphptools": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

@@ -51,4 +51,7 @@ define('UC_PPP', 20);
 define('JPUSH_APP_KEY', 'dd1066407b044738b6479275' );//JPUSHµÄAPP key
 define('JPUSH_MASTER_SECRET', '6b135be0037a5c1e693c3dfa');//JPUSHµÄAPP secret
 
+
+return $_SC;
+
 ?>

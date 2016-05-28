@@ -19,4 +19,6 @@ Route::get('/', function () {
 
 Route::get('/', "UcController@index");
 
-Route::get('test', "test@index");
+Route::get('test/show', "test@show");
+Route::get('test', "test@index")->middleware('cauth');
+

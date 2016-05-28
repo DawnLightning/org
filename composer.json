@@ -7,8 +7,15 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
-        "jpush/jpush": "^3.3"
+        "jpush/jpush": "^3.3",
+		"naturalwill/jphptools": "dev-master"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/NaturalWill/jphptools.git"
+        }
+	],
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",

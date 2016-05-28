@@ -4,13 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Illuminate\Routing\Route;
-use DB;
-use Illuminate\Http\Response;
-use Capi;
 
-class test extends Controller
+class OrgController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,21 +17,6 @@ class test extends Controller
     public function index()
     {
         //
-    	$url = asset('img/photo.jpg');
-    	//echo $url;
-    	$uc=\Uchelper::getInstance();
-    	
-    	//$user=Auth::check();
-    	//$config=config('database.connections.mysql');
-    	//var_dump($config);
-    	//var_dump($_SGLOBALS);
-    	
-    	//var_dump($uc);
-    	//exit;
-    	//return ()->json(__DIR__);
-    	//echo action('Auth\AuthController@getLogin');
-    	Capi::showmessage_by_data('do_success',0,$url);
-    	
     }
 
     /**
@@ -64,11 +46,9 @@ class test extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-        $query = DB::select('SELECT * FROM users');
-        echo count($query).url();
-        
+        //
     }
 
     /**
