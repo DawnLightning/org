@@ -9,6 +9,7 @@ use Illuminate\Routing\Route;
 use DB;
 use Illuminate\Http\Response;
 use Capi;
+use Illuminate\Support\Facades\Input;
 
 class test extends Controller
 {
@@ -66,9 +67,13 @@ class test extends Controller
      */
     public function show()
     {
-        $query = DB::select('SELECT * FROM users');
-        echo count($query).url();
-        
+    	//redirect()->withInput();
+        //$query = DB::select('SELECT * FROM users');
+    	$url = asset('index2.php');
+    	$all=Input::all();
+    	
+    	echo $url;
+        var_dump($_SERVER);
     }
 
     /**

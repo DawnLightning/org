@@ -18,9 +18,13 @@ class UcController extends Controller
     {
 		
         // incloude old ucenter home
+        /*
         $uri=$request->url();
         $url=preg_replace('/\/index.php$/','',$uri);
         header("Location: ".$url."/index2.php");
+        */
+    	$query=empty($_SERVER['QUERY_STRING'])?'':'?'.$_SERVER['QUERY_STRING'];
+    	header("Location: ".asset('index2.php').$query);
         exit;
 
     }
