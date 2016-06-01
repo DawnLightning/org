@@ -70,7 +70,7 @@ function space_open($uid, $username, $gid=0, $email='') {
 		while ($value = $_SGLOBAL['db']->fetch_array($query)) {
 			$newspacelist[] = $value;
 		}
-		data_set('newspacelist', $newspacelist);
+		uchome_data_set('newspacelist', $newspacelist);
 	}
 	
 	//统计更新

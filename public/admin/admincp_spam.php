@@ -31,7 +31,7 @@ if(submitcheck('spamsubmit')) {
 	if(empty($datas['question']) && $_POST['config']['questionmode']) {
 		$_POST['config']['questionmode'] = 0;
 	}
-	data_set('spam', $datas);
+	uchome_data_set('spam', $datas);
 	
 	$setarr = array();
 	foreach ($_POST['config'] as $var => $value) {
@@ -55,7 +55,7 @@ while ($value = $_SGLOBAL['db']->fetch_array($query)) {
 	$configs[$value['var']] = shtmlspecialchars($value['datavalue']);
 }
 
-$datas = data_get('spam');
+$datas = uchome_data_get('spam');
 if($datas) $datas = unserialize($datas);
 $onlineip = getonlineip();
 

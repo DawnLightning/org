@@ -26,14 +26,14 @@ if(submitcheck('censorsubmit')) {
 		}
 	}
 
-	data_set('censor', $newarr?implode("\n", $newarr):'');
+	uchome_data_set('censor', $newarr?implode("\n", $newarr):'');
 	include_once(S_ROOT.'./source/function_cache.php');
 	censor_cache();
 
 	cpmessage('do_success', 'admincp.php?ac=censor');
 }
 
-$censor = data_get('censor');
+$censor = uchome_data_get('censor');
 $banflag = '{BANNED}';
 
 ?>

@@ -89,7 +89,7 @@ if($op == 'logout') {
 		showmessage('the_normal_information');
 	}
 
-	$reason = explode("\r\n", trim(preg_replace("/(\s*(\r\n|\n\r|\n|\r)\s*)/", "\r\n", data_get('reason'))));
+	$reason = explode("\r\n", trim(preg_replace("/(\s*(\r\n|\n\r|\n|\r)\s*)/", "\r\n", uchome_data_get('reason'))));
 	if(is_array($reason) && count($reason) == 1 && empty($reason[0])) {
 		$reason = array();
 	}

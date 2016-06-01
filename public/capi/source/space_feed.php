@@ -168,7 +168,7 @@ if($space['self'] && empty($start)) {
 	
 	//»¶Ó­ÐÂ³ÉÔ±
 	if($_SCONFIG['newspacenum']>0) {
-		$newspacelist = unserialize(data_get('newspacelist'));
+		$newspacelist = unserialize(uchome_data_get('newspacelist'));
 		if(!is_array($newspacelist)) $newspacelist = array();
 		foreach ($newspacelist as $value) {
 			$oluids[] = $value['uid'];

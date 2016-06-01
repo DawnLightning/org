@@ -63,14 +63,14 @@ if(submitcheck('thevaluesubmit')) {
 	foreach ($_POST['data'] as $var => $value) {
 		$datas[$var] = trim(stripslashes($value));
 	}
-	data_set('setting', $datas);
+	uchome_data_set('setting', $datas);
 	
 	//发送邮件设置
 	$mails = array();
 	foreach ($_POST['mail'] as $var => $value) {
 		$mails[$var] = trim(stripslashes($value));
 	}
-	data_set('mail', $mails);
+	uchome_data_set('mail', $mails);
 
 	//更新缓存
 	include_once(S_ROOT.'./source/function_cache.php');
