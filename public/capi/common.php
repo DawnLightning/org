@@ -12,6 +12,7 @@ if(get_magic_quotes_runtime()){
 	set_magic_quotes_runtime(0);
 }
 
+global $_SGLOBAL, $_SCONFIG, $_SBLOCK, $_TPL, $_SCOOKIE, $_SN, $space;
 $_SGLOBAL = $_SCONFIG = $_SBLOCK = $_TPL = $_SCOOKIE = $_SN = $space = array();
 
 //程序目录
