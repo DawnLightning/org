@@ -16,8 +16,9 @@ class Cauth {
 		//$path = public_path ();
 		
 		//include_once app_path().'/Uchelper/uchelper.php';
-		$uc=new Uchelper();
-		if($uc->_SGLOBAL ['supe_uid']==0){
+		
+		global $_SGLOBAL;
+		if($_SGLOBAL ['supe_uid']==0){
 			return redirect()->guest('/');
 		}
 		return $next ( $request );

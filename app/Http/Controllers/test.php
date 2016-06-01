@@ -24,7 +24,7 @@ class test extends Controller
         //
     	$url = asset('img/photo.jpg');
     	//echo $url;
-    	$uc=Uchelper::getInstance();
+    	//$uc=Uchelper::getInstance();
     	
     	//$user=Auth::check();
     	//$config=config('database.connections.mysql');
@@ -35,7 +35,7 @@ class test extends Controller
     	//exit;
     	//return ()->json(__DIR__);
     	//echo action('Auth\AuthController@getLogin');
-    	Capi::showmessage_by_data('do_success',0,$url);
+    	capi_showmessage_by_data('do_success',0,$url);
     	
     }
 
