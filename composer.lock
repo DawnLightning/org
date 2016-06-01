@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "663331f0dc4c7747e41e0122219e3d6f",
-    "content-hash": "96240cb944e2a592dbe7ee47fe7c39a8",
+    "hash": "fb8663086f09791e86bff9d50f0a05f5",
+    "content-hash": "243b36cf81566c54e58f749d54826ea3",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -746,45 +746,6 @@
                 "schedule"
             ],
             "time": "2016-01-26 21:23:30"
-        },
-        {
-            "name": "naturalwill/jphptools",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/NaturalWill/jphptools.git",
-                "reference": "f9b6e8c807f4f7a2144440e8f0685adf3c1570f2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/NaturalWill/jphptools/zipball/f9b6e8c807f4f7a2144440e8f0685adf3c1570f2",
-                "reference": "f9b6e8c807f4f7a2144440e8f0685adf3c1570f2",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "jphptools": "src/"
-                },
-                "files": [
-                    "src/Json2xml.php",
-                    "src/Capi.php"
-                ]
-            },
-            "authors": [
-                {
-                    "name": "Jier Zhang",
-                    "email": "naturalwill999@gmail.com"
-                }
-            ],
-            "support": {
-                "source": "https://github.com/NaturalWill/jphptools/tree/master",
-                "issues": "https://github.com/NaturalWill/jphptools/issues"
-            },
-            "time": "2016-05-28 10:22:53"
         },
         {
             "name": "nesbot/carbon",
@@ -3205,16 +3166,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.0.6",
+            "version": "v3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "0047c8366744a16de7516622c5b7355336afae96"
+                "reference": "eca51b7b65eb9be6af88ad7cc91685f1556f5c9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/symfony/yaml/0047c8366744a16de7516622c5b7355336afae96.zip",
-                "reference": "0047c8366744a16de7516622c5b7355336afae96",
+                "url": "https://packagist.phpcomposer.com/files/symfony/yaml/eca51b7b65eb9be6af88ad7cc91685f1556f5c9a.zip",
+                "reference": "eca51b7b65eb9be6af88ad7cc91685f1556f5c9a",
                 "shasum": ""
             },
             "require": {
@@ -3223,7 +3184,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "3.1-dev"
                 }
             },
             "autoload": {
@@ -3250,14 +3211,12 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2016-03-04 07:55:57"
+            "time": "2016-05-26 21:46:24"
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "naturalwill/jphptools": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

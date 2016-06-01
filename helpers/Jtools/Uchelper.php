@@ -1,4 +1,5 @@
 <?php
+namespace Jtools;
 use Illuminate\Support\Facades\Input;
 
 class Uchelper {
@@ -104,7 +105,7 @@ class Uchelper {
 		include_once (S_ROOT . './source/class_mysql.php');
 		
 		if (empty ( $this->_SGLOBAL ['db'] )) {
-			$this->_SGLOBAL ['db'] = new dbstuff ();
+			$this->_SGLOBAL ['db'] = new \dbstuff ();
 			$this->_SGLOBAL ['db']->charset = $this->_SC ['dbcharset'];
 			$this->_SGLOBAL ['db']->connect ( $this->_SC ['dbhost'], $this->_SC ['dbuser'], $this->_SC ['dbpw'], $this->_SC ['dbname'], $this->_SC ['pconnect'] );
 		}

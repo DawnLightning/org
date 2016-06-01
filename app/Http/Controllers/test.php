@@ -8,7 +8,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Routing\Route;
 use DB;
 use Illuminate\Http\Response;
-use Capi;
+use Jtools\Uchelper;
+use Jtools\Capi;
 use Illuminate\Support\Facades\Input;
 
 class test extends Controller
@@ -23,7 +24,7 @@ class test extends Controller
         //
     	$url = asset('img/photo.jpg');
     	//echo $url;
-    	$uc=\Uchelper::getInstance();
+    	$uc=Uchelper::getInstance();
     	
     	//$user=Auth::check();
     	//$config=config('database.connections.mysql');

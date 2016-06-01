@@ -7,8 +7,8 @@
     </div>
 
     <div>
-        Email
-        <input type="email" name="email" value="{{ old('email') }}">
+        Phone
+        <input type="text" name="phone" value="{{ old('phone') }}">
     </div>
 
     <div>

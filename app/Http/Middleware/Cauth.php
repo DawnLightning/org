@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
-
+use Jtools\Uchelper;
 class Cauth {
 	/**
 	 * Handle an incoming request.
@@ -13,10 +13,10 @@ class Cauth {
 	 * @return mixed
 	 */
 	public function handle($request, Closure $next) {
-		$path = public_path ();
+		//$path = public_path ();
 		
-		include_once app_path().'/Uchelper/uchelper.php';
-		$uc=new \Uchelper();
+		//include_once app_path().'/Uchelper/uchelper.php';
+		$uc=new Uchelper();
 		if($uc->_SGLOBAL ['supe_uid']==0){
 			return redirect()->guest('/');
 		}
