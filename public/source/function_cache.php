@@ -23,15 +23,15 @@ function config_cache($updatedata=true) {
 	cache_write('config', '_SCONFIG', $_SCONFIG);
 
 	if($updatedata) {
-		$setting = data_get('setting');
+		$setting = uchome_data_get('setting');
 		$_SGLOBAL['setting'] = empty($setting)?array():unserialize($setting);
 		cache_write('setting', "_SGLOBAL['setting']", $_SGLOBAL['setting']);
 
-		$mail = data_get('mail');
+		$mail = uchome_data_get('mail');
 		$_SGLOBAL['mail'] = empty($mail)?array():unserialize($mail);
 		cache_write('mail', "_SGLOBAL['mail']", $_SGLOBAL['mail']);
 
-		$spam = data_get('spam');
+		$spam = uchome_data_get('spam');
 		$_SGLOBAL['spam'] = empty($spam)?array():unserialize($spam);
 		cache_write('spam', "_SGLOBAL['spam']", $_SGLOBAL['spam']);
 	}
@@ -41,7 +41,7 @@ function config_cache($updatedata=true) {
 function network_cache() {
 	global $_SGLOBAL, $_SCONFIG;
 
-	$setting = data_get('network');
+	$setting = uchome_data_get('network');
 	$_SGLOBAL['network'] = empty($setting)?array():unserialize($setting);
 	cache_write('network', "_SGLOBAL['network']", $_SGLOBAL['network']);
 }
@@ -116,7 +116,7 @@ function censor_cache() {
 
 	$_SGLOBAL['censor'] = $banned = $banwords = array();
 
-	$censorarr = explode("\n", data_get('censor'));
+	$censorarr = explode("\n", uchome_data_get('censor'));
 	foreach($censorarr as $censor) {
 		$censor = trim($censor);
 		if(empty($censor)) continue;
@@ -250,7 +250,7 @@ function userapp_cache() {
 function app_cache() {
 	global $_SGLOBAL;
 
-	$relatedtag = unserialize(data_get('relatedtag'));
+	$relatedtag = unserialize(uchome_data_get('relatedtag'));
 	$default_open = 0;
 	if(empty($relatedtag)) {
 		//从UC取应用

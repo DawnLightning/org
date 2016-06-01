@@ -1163,7 +1163,7 @@ function strexists($haystack, $needle) {
 }
 
 //获取数据
-function data_get($var, $isarray=0) {
+function uchome_data_get($var, $isarray=0) {
 	global $_SGLOBAL;
 
 	$query = $_SGLOBAL['db']->query("SELECT * FROM ".tname('data')." WHERE var='$var' LIMIT 1");
@@ -1175,7 +1175,7 @@ function data_get($var, $isarray=0) {
 }
 
 //更新数据
-function data_set($var, $datavalue, $clean=0) {
+function uchome_data_set($var, $datavalue, $clean=0) {
 	global $_SGLOBAL;
 
 	if($clean) {

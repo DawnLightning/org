@@ -202,7 +202,7 @@ if(empty($op)) {
 
 	}
 	
-	$register_rule = data_get('registerrule');
+	$register_rule = uchome_data_get('registerrule');
 
 	//include template('do_register');
 

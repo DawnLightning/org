@@ -887,7 +887,7 @@ END;
 		'maildelimiter' => 0,
 		'mailusername' => 1
 	);
-	data_set('mail', $mails);
+	uchome_data_set('mail', $mails);
 
 	//缩略图设置
 	$settings = array(
@@ -896,7 +896,7 @@ END;
 		'watermarkpos' => 4,
 		'watermarktrans' => 75
 	);
-	data_set('setting', $settings);
+	uchome_data_set('setting', $settings);
 	
 	//随便看看
 	$network = array(
@@ -907,7 +907,7 @@ END;
 		'event' => array('cache'=>900),
 		'poll' => array('cache'=>500),
 	);
-	data_set('network', $network);
+	uchome_data_set('network', $network);
 
 	//计划任务
 	$datas = array(

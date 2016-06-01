@@ -13,13 +13,13 @@ if(!checkperm('managebackup') || !ckfounder($_SGLOBAL['supe_uid'])) {
 }
 //获取分卷编号
 $volume = isset($_GET['volume']) ? (intval($_GET['volume']) + 1) : 1;
-$backupdir = data_get('backupdir');
+$backupdir = uchome_data_get('backupdir');
 $x_ver = X_VER;
 
 //备份文件目录
 if(empty($backupdir)) {
 	$backupdir = random(6);
-	data_set('backupdir', $backupdir);
+	uchome_data_set('backupdir', $backupdir);
 }
 $backupdir = 'backup_'.$backupdir;
 if(!is_dir(S_ROOT.'./data/'.$backupdir)) {
@@ -130,10 +130,10 @@ if(empty($_GET['op'])) {
 	} elseif($type == 'custom') {
 		if(isset($_POST['setup'])) {//POST提交备份
 			$tables = empty($_POST['customtables']) ? array() : $_POST['customtables'];
-			data_set('custombackup', $tables);
+			uchome_data_set('custombackup', $tables);
 		} else {
 			//自动跳转备份
-			$tables = data_get('custombackup');
+			$tables = uchome_data_get('custombackup');
 			$tables = unserialize($tables);
 		}
 	}
