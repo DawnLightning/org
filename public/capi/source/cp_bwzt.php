@@ -8,7 +8,7 @@ if(!defined('IN_UCHOME')) {
 	exit('Access Denied');
 }
 
-//¼ì²éÐÅÏ¢
+//æ£€æŸ¥ä¿¡æ¯
 $bwztid = empty($_GET['bwztid'])?0:intval($_GET['bwztid']);
 $op = empty($_GET['op'])?'':$_GET['op'];
 
@@ -20,29 +20,29 @@ if($bwztid) {
 	$bwzt = $_SGLOBAL['db']->fetch_array($query);
 }
 
-//È¨ÏÞ¼ì²é
+//æƒé™æ£€æŸ¥
 if(empty($bwzt)) {
 	if(!checkperm('allowbwzt')) {
 		ckspacelog();
 		capi_showmessage_by_data('no_authority_to_add_log');
 	}
 	
-	//ÊµÃûÈÏÖ¤
+	//å®žåè®¤è¯
 	ckrealname('bwzt');
 	
-	//ÊÓÆµÈÏÖ¤
+	//è§†é¢‘è®¤è¯
 	ckvideophoto('bwzt');
 	
-	//ÐÂÓÃ»§¼ûÏ°
+	//æ–°ç”¨æˆ·è§ä¹ 
 	cknewuser();
 	
-	//ÅÐ¶ÏÊÇ·ñ·¢²¼Ì«¿ì
+	//åˆ¤æ–­æ˜¯å¦å‘å¸ƒå¤ªå¿«
 	$waittime = interval_check('post');
 	if($waittime > 0) {
 		capi_showmessage_by_data('operating_too_fast',1,array("waittime"=>$waittime));
 	}
 	
-	//½ÓÊÕÍâ²¿±êÌâ
+	//æŽ¥æ”¶å¤–éƒ¨æ ‡é¢˜
 	$bwzt['subject'] = empty($_GET['subject'])?'':getstr($_GET['subject'], 80, 1, 0);
 	$bwzt['message'] = empty($_GET['message'])?'':getstr($_GET['message'], 5000, 1, 0);
 	
@@ -52,7 +52,7 @@ if(empty($bwzt)) {
 		capi_showmessage_by_data('no_authority_operation_of_the_log');
 	}
 }
-//Ìí¼Ó±à¼­²Ù×÷
+//æ·»åŠ ç¼–è¾‘æ“ä½œ
 if(capi_submitcheck('bwztsubmit')) {
 
 	if(empty($bwzt['bwztid'])) {
@@ -64,7 +64,7 @@ if(capi_submitcheck('bwztsubmit')) {
 		}
 	}
 	
-	//ÑéÖ¤Âë
+	//éªŒè¯ç 
 	if(checkperm('seccode') && !ckseccode($_REQUEST['seccode'])) {
 		capi_showmessage_by_data('incorrect_code');
 	}
@@ -90,7 +90,7 @@ if(capi_submitcheck('bwztsubmit')) {
 }
 
 if($_GET['op'] == 'delete') {
-	//É¾³ý
+	//åˆ é™¤
 	if(capi_submitcheck('deletesubmit')) {
 		include_once(S_ROOT.'./source/function_delete.php');
 		if(deletebwzts(array($bwztid))) {
@@ -108,7 +108,7 @@ if($_GET['op'] == 'delete') {
 	capi_showmessage_by_data('do_success', 0, array("url"=> "space.php?uid=$uid&do=bwzt&id=$id"));
 	
 } elseif($_GET['op'] == 'edithot') {
-	//È¨ÏÞ
+	//æƒé™
 	if(!checkperm('managebwzt')) {
 		capi_showmessage_by_data('no_privilege');
 	}
@@ -127,12 +127,12 @@ if($_GET['op'] == 'delete') {
 	}
 	
 } else {
-	//Ìí¼Ó±à¼­
-	//»ñÈ¡¸öÈË·ÖÀà
+	//æ·»åŠ ç¼–è¾‘
+	//èŽ·å–ä¸ªäººåˆ†ç±»
 	$bwztclassarr = $bwzt['uid']?getbwztclassarr($bwzt['uid']):getbwztclassarr($_SGLOBAL['supe_uid']);
-	//»ñÈ¡¿ÆÊÒ·ÖÀà
+	//èŽ·å–ç§‘å®¤åˆ†ç±»
 	$bwztdivisionarr = $bwzt['uid']?getbwztdivisionarr($bwzt['uid']):getbwztdivisionarr($_SGLOBAL['supe_uid']);
-	//»ñÈ¡Ïà²á
+	//èŽ·å–ç›¸å†Œ
 	$albums = getalbums($_SGLOBAL['supe_uid']);
 	
 	$tags = empty($bwzt['tag'])?array():unserialize($bwzt['tag']);
@@ -163,10 +163,10 @@ if($_GET['op'] == 'delete') {
 	
 	$allowhtml = checkperm('allowhtml');
 	
-	//ºÃÓÑ×é
+	//å¥½å‹ç»„
 	$groups = getfriendgroup();
 	
-	//²ÎÓëÈÈµã
+	//å‚ä¸Žçƒ­ç‚¹
 	$topic = array();
 	$topicid = $_GET['topicid'] = intval($_GET['topicid']);
 	if($topicid) {
@@ -176,7 +176,7 @@ if($_GET['op'] == 'delete') {
 		$actives = array('bwzt' => ' class="active"');
 	}
 	
-	//²Ëµ¥¼¤»î
+	//èœå•æ¿€æ´»
 	$menuactives = array('space'=>' class="active"');
 }
 

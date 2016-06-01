@@ -4,52 +4,52 @@
 	$Id: config.new.php 9293 2008-10-30 06:44:42Z liguode $
 */
 
-//Ucenter HomeÅäÖÃ²ÎÊı
+//Ucenter Homeé…ç½®å‚æ•°
 $_SC = array();
-$_SC['dbhost']  		= 'localhost'; //·şÎñÆ÷µØÖ·
-$_SC['dbuser']  		= 'root'; //ÓÃ»§
-$_SC['dbpw'] 	 		= 'root'; //ÃÜÂë
-$_SC['dbcharset'] 		= 'utf8'; //×Ö·û¼¯
-$_SC['pconnect'] 		= 0; //ÊÇ·ñ³ÖĞøÁ¬½Ó
-$_SC['dbname']  		= 'uchome'; //Êı¾İ¿â
-$_SC['tablepre'] 		= 'uchome_'; //±íÃûÇ°×º
-$_SC['charset'] 		= 'utf-8'; //Ò³Ãæ×Ö·û¼¯
+$_SC['dbhost']  		= 'localhost'; //æœåŠ¡å™¨åœ°å€
+$_SC['dbuser']  		= 'root'; //ç”¨æˆ·
+$_SC['dbpw'] 	 		= 'root'; //å¯†ç 
+$_SC['dbcharset'] 		= 'utf8'; //å­—ç¬¦é›†
+$_SC['pconnect'] 		= 0; //æ˜¯å¦æŒç»­è¿æ¥
+$_SC['dbname']  		= 'uchome'; //æ•°æ®åº“
+$_SC['tablepre'] 		= 'uchome_'; //è¡¨åå‰ç¼€
+$_SC['charset'] 		= 'utf-8'; //é¡µé¢å­—ç¬¦é›†
 
-$_SC['gzipcompress'] 	= 0; //ÆôÓÃgzip
+$_SC['gzipcompress'] 	= 0; //å¯ç”¨gzip
 
-$_SC['cookiepre'] 		= 'uchome_'; //COOKIEÇ°×º
-$_SC['cookiedomain'] 	= ''; //COOKIE×÷ÓÃÓò
-$_SC['cookiepath'] 		= '/'; //COOKIE×÷ÓÃÂ·¾¶
+$_SC['cookiepre'] 		= 'uchome_'; //COOKIEå‰ç¼€
+$_SC['cookiedomain'] 	= ''; //COOKIEä½œç”¨åŸŸ
+$_SC['cookiepath'] 		= '/'; //COOKIEä½œç”¨è·¯å¾„
 
-$_SC['attachdir']		= './attachment/'; //¸½¼ş±¾µØ±£´æÎ»ÖÃ(·şÎñÆ÷Â·¾¶, ÊôĞÔ 777, ±ØĞëÎª web ¿É·ÃÎÊµ½µÄÄ¿Â¼, Ïà¶ÔÄ¿Â¼Îñ±ØÒÔ "./" ¿ªÍ·, Ä©Î²¼Ó "/")
-$_SC['attachurl']		= 'attachment/'; //¸½¼ş±¾µØURLµØÖ·(¿ÉÎªµ±Ç° URL ÏÂµÄÏà¶ÔµØÖ·»ò http:// ¿ªÍ·µÄ¾ø¶ÔµØÖ·, Ä©Î²¼Ó "/")
+$_SC['attachdir']		= './attachment/'; //é™„ä»¶æœ¬åœ°ä¿å­˜ä½ç½®(æœåŠ¡å™¨è·¯å¾„, å±æ€§ 777, å¿…é¡»ä¸º web å¯è®¿é—®åˆ°çš„ç›®å½•, ç›¸å¯¹ç›®å½•åŠ¡å¿…ä»¥ "./" å¼€å¤´, æœ«å°¾åŠ  "/")
+$_SC['attachurl']		= 'attachment/'; //é™„ä»¶æœ¬åœ°URLåœ°å€(å¯ä¸ºå½“å‰ URL ä¸‹çš„ç›¸å¯¹åœ°å€æˆ– http:// å¼€å¤´çš„ç»å¯¹åœ°å€, æœ«å°¾åŠ  "/")
 
-$_SC['siteurl']			= ''; //Õ¾µãµÄ·ÃÎÊURLµØÖ·(http:// ¿ªÍ·µÄ¾ø¶ÔµØÖ·, Ä©Î²¼Ó "/")£¬Îª¿ÕµÄ»°£¬ÏµÍ³»á×Ô¶¯Ê¶±ğ¡£
+$_SC['siteurl']			= ''; //ç«™ç‚¹çš„è®¿é—®URLåœ°å€(http:// å¼€å¤´çš„ç»å¯¹åœ°å€, æœ«å°¾åŠ  "/")ï¼Œä¸ºç©ºçš„è¯ï¼Œç³»ç»Ÿä¼šè‡ªåŠ¨è¯†åˆ«ã€‚
 
-$_SC['tplrefresh']		= 0; //ÅĞ¶ÏÄ£°åÊÇ·ñ¸üĞÂµÄĞ§ÂÊµÈ¼¶£¬ÊıÖµÔ½´ó£¬Ğ§ÂÊÔ½¸ß; ÉèÖÃÎª0ÔòÓÀ¾Ã²»ÅĞ¶Ï
+$_SC['tplrefresh']		= 0; //åˆ¤æ–­æ¨¡æ¿æ˜¯å¦æ›´æ–°çš„æ•ˆç‡ç­‰çº§ï¼Œæ•°å€¼è¶Šå¤§ï¼Œæ•ˆç‡è¶Šé«˜; è®¾ç½®ä¸º0åˆ™æ°¸ä¹…ä¸åˆ¤æ–­
 
-//Ucenter Home°²È«Ïà¹Ø
-$_SC['founder'] 		= '1'; //´´Ê¼ÈË UID, ¿ÉÒÔÖ§³Ö¶à¸ö´´Ê¼ÈË£¬Ö®¼äÊ¹ÓÃ ¡°,¡± ·Ö¸ô¡£²¿·Ö¹ÜÀí¹¦ÄÜÖ»ÓĞ´´Ê¼ÈË²Å¿É²Ù×÷¡£
-$_SC['allowedittpl']	= 0; //ÊÇ·ñÔÊĞíÔÚÏß±à¼­Ä£°å¡£ÎªÁË·şÎñÆ÷°²È«£¬Ç¿ÁÒ½¨Òé¹Ø±Õ
+//Ucenter Homeå®‰å…¨ç›¸å…³
+$_SC['founder'] 		= '1'; //åˆ›å§‹äºº UID, å¯ä»¥æ”¯æŒå¤šä¸ªåˆ›å§‹äººï¼Œä¹‹é—´ä½¿ç”¨ â€œ,â€ åˆ†éš”ã€‚éƒ¨åˆ†ç®¡ç†åŠŸèƒ½åªæœ‰åˆ›å§‹äººæ‰å¯æ“ä½œã€‚
+$_SC['allowedittpl']	= 0; //æ˜¯å¦å…è®¸åœ¨çº¿ç¼–è¾‘æ¨¡æ¿ã€‚ä¸ºäº†æœåŠ¡å™¨å®‰å…¨ï¼Œå¼ºçƒˆå»ºè®®å…³é—­
 
-//Ó¦ÓÃµÄUCenterÅäÖÃĞÅÏ¢(¿ÉÒÔµ½UCenterºóÌ¨->Ó¦ÓÃ¹ÜÀí->²é¿´±¾Ó¦ÓÃ->¸´ÖÆÀïÃæ¶ÔÓ¦µÄÅäÖÃĞÅÏ¢½øĞĞÌæ»»)
-define('UC_CONNECT', 'mysql'); // Á¬½Ó UCenter µÄ·½Ê½: mysql/NULL, Ä¬ÈÏÎª¿ÕÊ±Îª fscoketopen(), mysql ÊÇÖ±½ÓÁ¬½ÓµÄÊı¾İ¿â, ÎªÁËĞ§ÂÊ, ½¨Òé²ÉÓÃ mysql
-define('UC_DBHOST', 'localhost'); // UCenter Êı¾İ¿âÖ÷»ú
-define('UC_DBUSER', 'root'); // UCenter Êı¾İ¿âÓÃ»§Ãû
-define('UC_DBPW', 'root'); // UCenter Êı¾İ¿âÃÜÂë
-define('UC_DBNAME', 'ucenter'); // UCenter Êı¾İ¿âÃû³Æ
-define('UC_DBCHARSET', 'utf8'); // UCenter Êı¾İ¿â×Ö·û¼¯
-define('UC_DBTABLEPRE', 'uc_'); // UCenter Êı¾İ¿â±íÇ°×º
-define('UC_DBCONNECT', '0'); // UCenter Êı¾İ¿â³Ö¾ÃÁ¬½Ó 0=¹Ø±Õ, 1=´ò¿ª
-define('UC_KEY', '1234567890'); // Óë UCenter µÄÍ¨ĞÅÃÜÔ¿, ÒªÓë UCenter ±£³ÖÒ»ÖÂ
-define('UC_API', 'http://localhost/uc_server'); // UCenter µÄ URL µØÖ·, ÔÚµ÷ÓÃÍ·ÏñÊ±ÒÀÀµ´Ë³£Á¿
-define('UC_CHARSET', 'gbk'); // UCenter µÄ×Ö·û¼¯
-define('UC_IP', ''); // UCenter µÄ IP, µ± UC_CONNECT Îª·Ç mysql ·½Ê½Ê±, ²¢ÇÒµ±Ç°Ó¦ÓÃ·şÎñÆ÷½âÎöÓòÃûÓĞÎÊÌâÊ±, ÇëÉèÖÃ´ËÖµ
-define('UC_APPID', '1'); // µ±Ç°Ó¦ÓÃµÄ ID
+//åº”ç”¨çš„UCenteré…ç½®ä¿¡æ¯(å¯ä»¥åˆ°UCenteråå°->åº”ç”¨ç®¡ç†->æŸ¥çœ‹æœ¬åº”ç”¨->å¤åˆ¶é‡Œé¢å¯¹åº”çš„é…ç½®ä¿¡æ¯è¿›è¡Œæ›¿æ¢)
+define('UC_CONNECT', 'mysql'); // è¿æ¥ UCenter çš„æ–¹å¼: mysql/NULL, é»˜è®¤ä¸ºç©ºæ—¶ä¸º fscoketopen(), mysql æ˜¯ç›´æ¥è¿æ¥çš„æ•°æ®åº“, ä¸ºäº†æ•ˆç‡, å»ºè®®é‡‡ç”¨ mysql
+define('UC_DBHOST', 'localhost'); // UCenter æ•°æ®åº“ä¸»æœº
+define('UC_DBUSER', 'root'); // UCenter æ•°æ®åº“ç”¨æˆ·å
+define('UC_DBPW', 'root'); // UCenter æ•°æ®åº“å¯†ç 
+define('UC_DBNAME', 'ucenter'); // UCenter æ•°æ®åº“åç§°
+define('UC_DBCHARSET', 'utf8'); // UCenter æ•°æ®åº“å­—ç¬¦é›†
+define('UC_DBTABLEPRE', 'uc_'); // UCenter æ•°æ®åº“è¡¨å‰ç¼€
+define('UC_DBCONNECT', '0'); // UCenter æ•°æ®åº“æŒä¹…è¿æ¥ 0=å…³é—­, 1=æ‰“å¼€
+define('UC_KEY', '1234567890'); // ä¸ UCenter çš„é€šä¿¡å¯†é’¥, è¦ä¸ UCenter ä¿æŒä¸€è‡´
+define('UC_API', 'http://localhost/uc_server'); // UCenter çš„ URL åœ°å€, åœ¨è°ƒç”¨å¤´åƒæ—¶ä¾èµ–æ­¤å¸¸é‡
+define('UC_CHARSET', 'gbk'); // UCenter çš„å­—ç¬¦é›†
+define('UC_IP', ''); // UCenter çš„ IP, å½“ UC_CONNECT ä¸ºé mysql æ–¹å¼æ—¶, å¹¶ä¸”å½“å‰åº”ç”¨æœåŠ¡å™¨è§£æåŸŸåæœ‰é—®é¢˜æ—¶, è¯·è®¾ç½®æ­¤å€¼
+define('UC_APPID', '1'); // å½“å‰åº”ç”¨çš„ ID
 define('UC_PPP', 20);
 
-define('JPUSH_APP_KEY', 'dd1066407b044738b6479275' );//JPUSHµÄAPP key
-define('JPUSH_MASTER_SECRET', '6b135be0037a5c1e693c3dfa');//JPUSHµÄAPP secret
+define('JPUSH_APP_KEY', 'dd1066407b044738b6479275' );//JPUSHçš„APP key
+define('JPUSH_MASTER_SECRET', '6b135be0037a5c1e693c3dfa');//JPUSHçš„APP secret
 
 
 return $_SC;

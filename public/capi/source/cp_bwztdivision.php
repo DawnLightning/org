@@ -8,14 +8,14 @@ if(!defined('IN_UCHOME')) {
 	exit('Access Denied');
 }
 
-//¼ì²éÐÅÏ¢
+//æ£€æŸ¥ä¿¡æ¯
 $bwztdivisionid = empty($_GET['bwztdivisionid'])?0:intval($_GET['bwztdivisionid']);
 $op = empty($_GET['op'])?'':$_GET['op'];
 
 if ($op == 'add') {
-	//Ôö¼ÓÖ¢×´·ÖÀà
+	//å¢žåŠ ç—‡çŠ¶åˆ†ç±»
 	if(!empty($_GET['bwztdivisionname'])) {
-		//·ÖÀàÃû
+		//åˆ†ç±»å
 		$bwztdivisionname = shtmlspecialchars(trim($_GET['bwztdivisionname']));
 		$bwztdivisionname = getstr($bwztdivisionname, 0, 1, 1, 1);
 		if(empty($bwztdivisionname)) {
@@ -56,9 +56,9 @@ if ($op == 'edit') {
 	}
 
 } elseif ($op == 'delete') {
-	//É¾³ý·ÖÀà
+	//åˆ é™¤åˆ†ç±»
 	if(capi_submitcheck('deletesubmit')) {
-		//¸üÐÂÈÕÖ¾·ÖÀà
+		//æ›´æ–°æ—¥å¿—åˆ†ç±»
 		updatetable('bwzt', array('bwztdivisionid'=>0), array('bwztdivisionid'=>$bwztdivisionid));
 		$_SGLOBAL['db']->query("DELETE FROM ".tname('bwztdivision')." WHERE bwztdivisionid='$bwztdivisionid'");
 		
@@ -67,10 +67,10 @@ if ($op == 'edit') {
 	}
 }
 
-//Ä£°æ
+//æ¨¡ç‰ˆ
 //include_once template("cp_bwztdivision");
 
-//²é¿´µ±Ç°·ÖÀàÐÅÏ¢
+//æŸ¥çœ‹å½“å‰åˆ†ç±»ä¿¡æ¯
 capi_showmessage_by_data('do_success', 0, array("bwztdivision"=>$bwztdivision));
 
 ?>

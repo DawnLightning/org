@@ -16,25 +16,25 @@ $id = empty($_GET['id'])?0:intval($_GET['id']);
 $bwztclassid = empty($_GET['bwztclassid'])?0:intval($_GET['bwztclassid']);
 $bwztdivisionid = empty($_GET['bwztdivisionid'])?0:intval($_GET['bwztdivisionid']);
 
-//±íÌ¬·ÖÀà
+//è¡¨æ€åˆ†ç±»
 @include_once(S_ROOT.'./data/data_click.php');
 $clicks = empty($_SGLOBAL['click']['bwztid'])?array():$_SGLOBAL['click']['bwztid'];
 
 if($id) {
-	//¶ÁÈ¡ÈÕÖ¾
+	//è¯»å–æ—¥å¿—
 	$query = $_SGLOBAL['db']->query("SELECT bf.*, b.* FROM ".tname('bwzt')." b LEFT JOIN ".tname('bwztfield')." bf ON bf.bwztid=b.bwztid WHERE b.bwztid='$id' AND b.uid='$space[uid]'");
 	$bwzt = $_SGLOBAL['db']->fetch_array($query);
-	//ÈÕÖ¾²»´æÔÚ
+	//æ—¥å¿—ä¸å­˜åœ¨
 	if(empty($bwzt)) {
 		showmessage('view_to_info_did_not_exist');
 	}
-	//¼ì²éºÃÓÑÈ¨ÏŞ
+	//æ£€æŸ¥å¥½å‹æƒé™
 	if(!ckfriend($bwzt['uid'], $bwzt['friend'], $bwzt['target_ids'])) {
-		//Ã»ÓĞÈ¨ÏŞ
+		//æ²¡æœ‰æƒé™
 		include template('space_privacy');
 		exit();
 	} elseif(!$space['self'] && $bwzt['friend'] == 4) {
-		//ÃÜÂëÊäÈëÎÊÌâ
+		//å¯†ç è¾“å…¥é—®é¢˜
 		$cookiename = "view_pwd_bwzt_$bwzt[bwztid]";
 		$cookievalue = empty($_SCOOKIE[$cookiename])?'':$_SCOOKIE[$cookiename];
 		if($cookievalue != md5(md5($bwzt['password']))) {
@@ -44,16 +44,16 @@ if($id) {
 		}
 	}
 
-	//ÕûÀí
+	//æ•´ç†
 	$bwzt['tag'] = empty($bwzt['tag'])?array():unserialize($bwzt['tag']);
 
-	//´¦ÀíÊÓÆµ±êÇ©
+	//å¤„ç†è§†é¢‘æ ‡ç­¾
 	include_once(S_ROOT.'./source/function_bwzt.php');
 	$bwzt['message'] = bwzt_bbcode($bwzt['message']);
 		
 	if(!empty($bwzt['pics'])){
 		$bwzt['pics']=json_decode($bwzt['pics']);
-		//²åÈëÍ¼Æ¬
+		//æ’å…¥å›¾ç‰‡
 		foreach ($bwzt['pics'] as $value) {
 			$bwzt['message'] .= "<div class=\"uchome-message-pic\"><img src=\"$value->picurl\"><p>$value->title</p></div>";
 		}
@@ -61,7 +61,7 @@ if($id) {
 	
 	$otherlist = $newlist = array();
 
-	//ÓĞĞ§ÆÚ
+	//æœ‰æ•ˆæœŸ
 	if($_SCONFIG['uc_tagrelatedtime'] && ($_SGLOBAL['timestamp'] - $bwzt['relatedtime'] > $_SCONFIG['uc_tagrelatedtime'])) {
 		$bwzt['related'] = array();
 	}
@@ -82,7 +82,7 @@ if($id) {
 				$bwzt['related'] = uc_tag_get($b_tags[$tag_index], $_SGLOBAL['tagtpl']['limit']);
 			}
 		} else {
-			//×ÔÉíTAG
+			//è‡ªèº«TAG
 			$tag_bwztids = array();
 			$query = $_SGLOBAL['db']->query("SELECT DISTINCT bwztid FROM ".tname('tagbwzt')." WHERE tagid IN (".simplode($b_tagids).") AND bwztid<>'$bwzt[bwztid]' ORDER BY bwztid DESC LIMIT 0,10");
 			while ($value = $_SGLOBAL['db']->fetch_array($query)) {
@@ -91,7 +91,7 @@ if($id) {
 			if($tag_bwztids) {
 				$query = $_SGLOBAL['db']->query("SELECT uid,username,subject,bwztid FROM ".tname('bwzt')." WHERE bwztid IN (".simplode($tag_bwztids).")");
 				while ($value = $_SGLOBAL['db']->fetch_array($query)) {
-					realname_set($value['uid'], $value['username']);//ÊµÃû
+					realname_set($value['uid'], $value['username']);//å®å
 					$value['url'] = "space.php?uid=$value[uid]&do=bwzt&id=$value[bwztid]";
 					$bwzt['related'][UC_APPID]['data'][] = $value;
 				}
@@ -121,12 +121,12 @@ if($id) {
 				}
 			}
 		}
-		updatetable('bwztfield', array('related'=>addslashes(serialize(sstripslashes($bwzt['related']))), 'relatedtime'=>$_SGLOBAL['timestamp']), array('bwztid'=>$bwzt['bwztid']));//¸üĞÂ
+		updatetable('bwztfield', array('related'=>addslashes(serialize(sstripslashes($bwzt['related']))), 'relatedtime'=>$_SGLOBAL['timestamp']), array('bwztid'=>$bwzt['bwztid']));//æ›´æ–°
 	} else {
 		$bwzt['related'] = empty($bwzt['related'])?array():unserialize($bwzt['related']);
 	}
 
-	//×÷ÕßµÄÆäËû×îĞÂÈÕÖ¾
+	//ä½œè€…çš„å…¶ä»–æœ€æ–°æ—¥å¿—
 	$otherlist = array();
 	$query = $_SGLOBAL['db']->query("SELECT * FROM ".tname('bwzt')." WHERE uid='$space[uid]' ORDER BY dateline DESC LIMIT 0,6");
 	while ($value = $_SGLOBAL['db']->fetch_array($query)) {
@@ -135,7 +135,7 @@ if($id) {
 		}
 	}
 
-	//×îĞÂµÄÈÕÖ¾
+	//æœ€æ–°çš„æ—¥å¿—
 	$newlist = array();
 	$query = $_SGLOBAL['db']->query("SELECT * FROM ".tname('bwzt')." WHERE hot>=3 ORDER BY dateline DESC LIMIT 0,6");
 	while ($value = $_SGLOBAL['db']->fetch_array($query)) {
@@ -145,13 +145,13 @@ if($id) {
 		}
 	}
 
-	//ÆÀÂÛ
+	//è¯„è®º
 	$perpage = 30;
 	$perpage = mob_perpage($perpage);
 	
 	$start = ($page-1)*$perpage;
 
-	//¼ì²é¿ªÊ¼Êı
+	//æ£€æŸ¥å¼€å§‹æ•°
 	ckstart($start, $perpage);
 
 	$count = $bwzt['replynum'];
@@ -163,22 +163,22 @@ if($id) {
 
 		$query = $_SGLOBAL['db']->query("SELECT * FROM ".tname('comment')." WHERE $csql id='$id' AND idtype='bwztid' ORDER BY dateline LIMIT $start,$perpage");
 		while ($value = $_SGLOBAL['db']->fetch_array($query)) {
-			realname_set($value['authorid'], $value['author']);//ÊµÃû
+			realname_set($value['authorid'], $value['author']);//å®å
 			$list[] = $value;
 		}
 	}
 
-	//·ÖÒ³
+	//åˆ†é¡µ
 	$multi = multi($count, $perpage, $page, "space.php?uid=$bwzt[uid]&do=$do&id=$id", '', 'content');
 
-	//·ÃÎÊÍ³¼Æ
+	//è®¿é—®ç»Ÿè®¡
 	if(!$space['self'] && $_SCOOKIE['view_bwztid'] != $bwzt['bwztid']) {
 		$_SGLOBAL['db']->query("UPDATE ".tname('bwzt')." SET viewnum=viewnum+1 WHERE bwztid='$bwzt[bwztid]'");
-		inserttable('log', array('id'=>$space['uid'], 'idtype'=>'uid'));//ÑÓ³Ù¸üĞÂ
+		inserttable('log', array('id'=>$space['uid'], 'idtype'=>'uid'));//å»¶è¿Ÿæ›´æ–°
 		ssetcookie('view_bwztid', $bwzt['bwztid']);
 	}
 
-	//±íÌ¬
+	//è¡¨æ€
 	$hash = md5($bwzt['uid']."\t".$bwzt['dateline']);
 	$id = $bwzt['bwztid'];
 	$idtype = 'bwztid';
@@ -191,38 +191,38 @@ if($id) {
 		$clicks[$key] = $value;
 	}
 
-	//µãÆÀ
+	//ç‚¹è¯„
 	$clickuserlist = array();
 	$query = $_SGLOBAL['db']->query("SELECT * FROM ".tname('clickuser')."
 		WHERE id='$id' AND idtype='$idtype'
 		ORDER BY dateline DESC
 		LIMIT 0,18");
 	while ($value = $_SGLOBAL['db']->fetch_array($query)) {
-		realname_set($value['uid'], $value['username']);//ÊµÃû
+		realname_set($value['uid'], $value['username']);//å®å
 		$value['clickname'] = $clicks[$value['clickid']]['name'];
 		$clickuserlist[] = $value;
 	}
 
-	//ÈÈµã
+	//çƒ­ç‚¹
 	$topic = topic_get($bwzt['topicid']);
 
-	//ÊµÃû
+	//å®å
 	realname_get();
 
 	$_TPL['css'] = 'bwzt';
 	include_once template("space_bwzt_view");
 
 } else {
-	//·ÖÒ³
+	//åˆ†é¡µ
 	$perpage = 10;
 	$perpage = mob_perpage($perpage);
 	
 	$start = ($page-1)*$perpage;
 
-	//¼ì²é¿ªÊ¼Êı
+	//æ£€æŸ¥å¼€å§‹æ•°
 	ckstart($start, $perpage);
 
-	//ÕªÒª½ØÈ¡
+	//æ‘˜è¦æˆªå–
 	$summarylen = 300;
 
 	$bwztclassarr = array();
@@ -234,13 +234,13 @@ if($id) {
 	$ordersql = 'b.dateline';
 
 	if(empty($_GET['view']) && ($space['friendnum']<$_SCONFIG['showallfriendnum'])) {
-		$_GET['view'] = 'all';//Ä¬ÈÏÏÔÊ¾
+		$_GET['view'] = 'all';//é»˜è®¤æ˜¾ç¤º
 	}
 
-	//´¦Àí²éÑ¯
+	//å¤„ç†æŸ¥è¯¢
 	$f_index = '';
 	if($_GET['view'] == 'click') {
-		//²È¹ıµÄÈÕÖ¾
+		//è¸©è¿‡çš„æ—¥å¿—
 		$theurl = "space.php?uid=$space[uid]&do=$do&view=click";
 		$actives = array('click'=>' class="active"');
 
@@ -265,19 +265,19 @@ if($id) {
 	} else {
 		
 		if($_GET['view'] == 'all') {
-			//´ó¼ÒµÄÈÕÖ¾
+			//å¤§å®¶çš„æ—¥å¿—
 			$wheresql = '1';
 
 			$actives = array('all'=>' class="active"');
 
-			//ÅÅĞò
+			//æ’åº
 			$orderarr = array('dateline','replynum','viewnum','hot');
 			foreach ($clicks as $value) {
 				$orderarr[] = "click_$value[clickid]";
 			}
 			if(!in_array($_GET['orderby'], $orderarr)) $_GET['orderby'] = '';
 
-			//Ê±¼ä
+			//æ—¶é—´
 			$_GET['day'] = intval($_GET['day']);
 			$_GET['hotday'] = 7;
 
@@ -312,7 +312,7 @@ if($id) {
 			if(empty($space['feedfriend']) || $bwztclassid) $_GET['view'] = 'me';
 			
 			if($_GET['view'] == 'me') {
-				//²é¿´¸öÈËµÄ
+				//æŸ¥çœ‹ä¸ªäººçš„
 				$wheresql = "b.uid='$space[uid]'";
 				$theurl = "space.php?uid=$space[uid]&do=$do&view=me";
 				$actives = array('me'=>' class="active"');
@@ -323,7 +323,7 @@ if($id) {
 	
 				$fuid_actives = array();
 	
-				//²é¿´Ö¸¶¨ºÃÓÑµÄ
+				//æŸ¥çœ‹æŒ‡å®šå¥½å‹çš„
 				$fusername = trim($_GET['fusername']);
 				$fuid = intval($_GET['fuid']);
 				if($fusername) {
@@ -338,7 +338,7 @@ if($id) {
 	
 				$actives = array('we'=>' class="active"');
 	
-				//ºÃÓÑÁĞ±í
+				//å¥½å‹åˆ—è¡¨
 				$query = $_SGLOBAL['db']->query("SELECT * FROM ".tname('friend')." WHERE uid='$space[uid]' AND status='1' ORDER BY num DESC, dateline DESC LIMIT 0,500");
 				while ($value = $_SGLOBAL['db']->fetch_array($query)) {
 					realname_set($value['fuid'], $value['fusername']);
@@ -347,37 +347,37 @@ if($id) {
 			}
 		}
 			
-		//Ö¢×´·ÖÀà
+		//ç—‡çŠ¶åˆ†ç±»
 		$query = $_SGLOBAL['db']->query("SELECT bwztclassid, bwztclassname FROM ".tname('bwztclass'));
 		while ($value = $_SGLOBAL['db']->fetch_array($query)) {
 			$bwztclassarr[$value['bwztclassid']] = $value['bwztclassname'];
 		}
-		//¿ÆÊÒ·ÖÀà
+		//ç§‘å®¤åˆ†ç±»
 		$query = $_SGLOBAL['db']->query("SELECT bwztdivisionid, bwztdivisionname FROM ".tname('bwztdivision'));
 		while ($value = $_SGLOBAL['db']->fetch_array($query)) {
 			$bwztdivisionarr[$value['bwztdivisionid']] = $value['bwztdivisionname'];
 		}
 
-		//·ÖÀà
+		//åˆ†ç±»
 		if($bwztclassid) {
 			$wheresql .= " AND b.bwztclassid='$bwztclassid'";
 			$theurl .= "&bwztclassid=$bwztclassid";
 		}
 
-		//·ÖÀà
+		//åˆ†ç±»
 		if($bwztdivisionid) {
 			$wheresql .= " AND b.bwztdivisionid='$bwztdivisionid'";
 			$theurl .= "&bwztdivisionid=$bwztdivisionid";
 		}
 		
-		//ÉèÖÃÈ¨ÏŞ
+		//è®¾ç½®æƒé™
 		$_GET['friend'] = intval($_GET['friend']);
 		if($_GET['friend']) {
 			$wheresql .= " AND b.friend='$_GET[friend]'";
 			$theurl .= "&friend=$_GET[friend]";
 		}
 
-		//ËÑË÷
+		//æœç´¢
 		if($searchkey = stripsearchkey($_GET['searchkey'])) {
 			$wheresql .= " AND b.subject LIKE '%$searchkey%'";
 			$theurl .= "&searchkey=$_GET[searchkey]";
@@ -385,7 +385,7 @@ if($id) {
 		}
 
 		$count = $_SGLOBAL['db']->result($_SGLOBAL['db']->query("SELECT COUNT(*) FROM ".tname('bwzt')." b WHERE $wheresql"),0);
-		//¸üĞÂÍ³¼Æ
+		//æ›´æ–°ç»Ÿè®¡
 		if($wheresql == "b.uid='$space[uid]'" && $space['bwztnum'] != $count) {
 			updatetable('space', array('bwztnum' => $count), array('uid'=>$space['uid']));
 		}
@@ -414,10 +414,10 @@ if($id) {
 		}
 	}
 
-	//·ÖÒ³
+	//åˆ†é¡µ
 	$multi = multi($count, $perpage, $page, $theurl);
 
-	//ÊµÃû
+	//å®å
 	realname_get();
 
 	$_TPL['css'] = 'bwzt';

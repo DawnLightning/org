@@ -167,7 +167,7 @@ function uc_authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
 }
 
 /**
- *  Ö§³ÖhttpsµÄ·ÃÎÊ
+ *  æ”¯æŒhttpsçš„è®¿é—®
  */
 function curl_fopen($url, $limit = 0, $post = array(), $cookie = '', $bysocket = FALSE, $ip = '', $timeout = 20, $block = TRUE) {
 	$__times__ = isset($_GET['__times__']) ? intval($_GET['__times__']) + 1 : 1;
@@ -209,16 +209,16 @@ function curlPost($url, $data=array(), $timeout = 20)
     return $result;
 }
 /**
- *  Ô¶³Ì´ò¿ªURL
- *  @param string $url		´ò¿ªµÄurl£¬¡¡Èç http://www.baidu.com/123.htm
- *  @param int $limit		È¡·µ»ØµÄÊı¾İµÄ³¤¶È
- *  @param string $post		Òª·¢ËÍµÄ POST Êı¾İ£¬Èçuid=1&password=1234
- *  @param string $cookie	ÒªÄ£ÄâµÄ COOKIE Êı¾İ£¬Èçuid=123&auth=a2323sd2323
- *  @param bool $bysocket	TRUE/FALSE ÊÇ·ñÍ¨¹ıSOCKET´ò¿ª
- *  @param string $ip		IPµØÖ·
- *  @param int $timeout		Á¬½Ó³¬Ê±Ê±¼ä
- *  @param bool $block		ÊÇ·ñÎª×èÈûÄ£Ê½
- *  @return			È¡µ½µÄ×Ö·û´®
+ *  è¿œç¨‹æ‰“å¼€URL
+ *  @param string $url		æ‰“å¼€çš„urlï¼Œã€€å¦‚ http://www.baidu.com/123.htm
+ *  @param int $limit		å–è¿”å›çš„æ•°æ®çš„é•¿åº¦
+ *  @param string $post		è¦å‘é€çš„ POST æ•°æ®ï¼Œå¦‚uid=1&password=1234
+ *  @param string $cookie	è¦æ¨¡æ‹Ÿçš„ COOKIE æ•°æ®ï¼Œå¦‚uid=123&auth=a2323sd2323
+ *  @param bool $bysocket	TRUE/FALSE æ˜¯å¦é€šè¿‡SOCKETæ‰“å¼€
+ *  @param string $ip		IPåœ°å€
+ *  @param int $timeout		è¿æ¥è¶…æ—¶æ—¶é—´
+ *  @param bool $block		æ˜¯å¦ä¸ºé˜»å¡æ¨¡å¼
+ *  @return			å–åˆ°çš„å­—ç¬¦ä¸²
  */
 function uc_fopen2($url, $limit = 0, $post = '', $cookie = '', $bysocket = FALSE, $ip = '', $timeout = 15, $block = TRUE) {
 	$__times__ = isset($_GET['__times__']) ? intval($_GET['__times__']) + 1 : 1;
@@ -641,10 +641,10 @@ function uc_check_version() {
 
 
 /**
- * ĞŞ¸ÄÍ·Ïñ
+ * ä¿®æ”¹å¤´åƒ
  *
- * @param	int		$uid	ÓÃ»§ID
- * @param	string	$type	Í·ÏñÀàĞÍ real OR virtual Ä¬ÈÏÎª virtual
+ * @param	int		$uid	ç”¨æˆ·ID
+ * @param	string	$type	å¤´åƒç±»å‹ real OR virtual é»˜è®¤ä¸º virtual
  * @return	string
  */
 function capi_uc_avatar($uid, $type = 'virtual',$returnurl=0) {
